@@ -4,16 +4,22 @@ public class Main {
 
         Income income = new Income("Allowance", 50000);
 
-        Expense foodExpense = new Expense(
-                "Lunch",
-                ExpenseCategory.FOOD,
-                5000
+        ExpenseManager expenseManager = new ExpenseManager();
+
+        expenseManager.addExpense(
+                new Expense("Lunch", ExpenseCategory.FOOD, 5000)
         );
 
-        Expense transportExpense = new Expense(
-                "Bus",
-                ExpenseCategory.TRANSPORT,
-                2000
+        expenseManager.addExpense(
+                new Expense("Bus", ExpenseCategory.TRANSPORT, 2000)
+        );
+
+        expenseManager.addExpense(
+                new Expense("Notebook", ExpenseCategory.EDUCATION, 3000)
+        );
+
+        expenseManager.addExpense(
+                new Expense("Movie", ExpenseCategory.ENTERTAINMENT, 4000)
         );
 
         System.out.println("=================================");
@@ -23,30 +29,24 @@ public class Main {
 
         System.out.println();
 
-        System.out.println("INCOME");
-        System.out.println("Source: " + income.getSource());
-        System.out.println("Amount: " + income.getAmount() + " RWF");
+        System.out.println("Income: "
+                + income.getAmount()
+                + " RWF");
 
         System.out.println();
 
         System.out.println("EXPENSES");
 
-        System.out.println(
-                foodExpense.getDescription()
-                        + " | "
-                        + foodExpense.getCategory()
-                        + " | "
-                        + foodExpense.getAmount()
-                        + " RWF"
-        );
+        for (Expense expense : expenseManager.getExpenses()) {
 
-        System.out.println(
-                transportExpense.getDescription()
-                        + " | "
-                        + transportExpense.getCategory()
-                        + " | "
-                        + transportExpense.getAmount()
-                        + " RWF"
-        );
+            System.out.println(
+                    expense.getDescription()
+                            + " | "
+                            + expense.getCategory()
+                            + " | "
+                            + expense.getAmount()
+                            + " RWF"
+            );
+        }
     }
 }
