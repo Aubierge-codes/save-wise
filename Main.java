@@ -24,6 +24,9 @@ public class Main {
                 new Expense("Movie", ExpenseCategory.ENTERTAINMENT, 4000)
         );
 
+        SavingGoal savingGoal =
+                new SavingGoal("Laptop", 300000);
+
         double totalExpenses =
                 expenseManager.calculateTotalExpenses();
 
@@ -94,5 +97,20 @@ public class Main {
                             + " RWF"
             );
         }
+
+        System.out.println();
+
+        System.out.println("SAVING GOAL");
+
+        System.out.println("Goal: "
+                + savingGoal.getName());
+
+        System.out.println("Target: "
+                + savingGoal.getTargetAmount()
+                + " RWF");
+
+        System.out.println("Saved: "
+                + savingGoal.getSavedAmount()
+                + " RWF");
     }
 }
