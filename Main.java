@@ -48,5 +48,11 @@ public class Main {
                             + " RWF"
             );
         }
+
+        System.out.println();
+
+        System.out.println("Total spent: "
+                + expenseManager.calculateTotalExpenses()
+                + " RWF");
     }
 }

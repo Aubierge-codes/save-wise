@@ -15,4 +15,15 @@ public class ExpenseManager {
     public ArrayList<Expense> getExpenses() {
         return expenses;
     }
+
+    public double calculateTotalExpenses() {
+
+        double total = 0;
+
+        for (Expense expense : expenses) {
+            total = total + expense.getAmount();
+        }
+
+        return total;
+    }
 }
