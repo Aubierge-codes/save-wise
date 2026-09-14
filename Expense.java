@@ -1,10 +1,10 @@
 public class Expense {
 
     private String description;
-    private String category;
+    private ExpenseCategory category;
     private double amount;
 
-    public Expense(String description, String category, double amount) {
+    public Expense(String description, ExpenseCategory category, double amount) {
         this.description = description;
         this.category = category;
         this.amount = amount;
@@ -14,7 +14,7 @@ public class Expense {
         return description;
     }
 
-    public String getCategory() {
+    public ExpenseCategory getCategory() {
         return category;
     }
 

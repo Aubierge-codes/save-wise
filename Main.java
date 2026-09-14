@@ -4,10 +4,16 @@ public class Main {
 
         Income income = new Income("Allowance", 50000);
 
-        Expense expense = new Expense(
+        Expense foodExpense = new Expense(
                 "Lunch",
-                "Food",
+                ExpenseCategory.FOOD,
                 5000
+        );
+
+        Expense transportExpense = new Expense(
+                "Bus",
+                ExpenseCategory.TRANSPORT,
+                2000
         );
 
         System.out.println("=================================");
@@ -23,9 +29,24 @@ public class Main {
 
         System.out.println();
 
-        System.out.println("EXPENSE");
-        System.out.println("Description: " + expense.getDescription());
-        System.out.println("Category: " + expense.getCategory());
-        System.out.println("Amount: " + expense.getAmount() + " RWF");
+        System.out.println("EXPENSES");
+
+        System.out.println(
+                foodExpense.getDescription()
+                        + " | "
+                        + foodExpense.getCategory()
+                        + " | "
+                        + foodExpense.getAmount()
+                        + " RWF"
+        );
+
+        System.out.println(
+                transportExpense.getDescription()
+                        + " | "
+                        + transportExpense.getCategory()
+                        + " | "
+                        + transportExpense.getAmount()
+                        + " RWF"
+        );
     }
 }
