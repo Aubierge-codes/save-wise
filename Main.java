@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -38,6 +40,9 @@ public class Main {
         Expense biggestExpense =
                 expenseManager.findBiggestExpense();
 
+        Map<ExpenseCategory, Double> categoryTotals =
+                expenseManager.calculateSpendingByCategory();
+
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
@@ -71,6 +76,21 @@ public class Main {
                     biggestExpense.getDescription()
                             + " - "
                             + biggestExpense.getAmount()
+                            + " RWF"
+            );
+        }
+
+        System.out.println();
+
+        System.out.println("SPENDING BY CATEGORY");
+
+        for (Map.Entry<ExpenseCategory, Double> entry
+                : categoryTotals.entrySet()) {
+
+            System.out.println(
+                    entry.getKey()
+                            + ": "
+                            + entry.getValue()
                             + " RWF"
             );
         }

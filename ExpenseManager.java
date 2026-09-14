@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ExpenseManager {
 
@@ -61,5 +63,25 @@ public class ExpenseManager {
         }
 
         return biggestExpense;
+    }
+
+    public Map<ExpenseCategory, Double> calculateSpendingByCategory() {
+
+        Map<ExpenseCategory, Double> categoryTotals = new HashMap<>();
+
+        for (Expense expense : expenses) {
+
+            ExpenseCategory category = expense.getCategory();
+
+            double currentTotal =
+                    categoryTotals.getOrDefault(category, 0.0);
+
+            categoryTotals.put(
+                    category,
+                    currentTotal + expense.getAmount()
+            );
+        }
+
+        return categoryTotals;
     }
 }
