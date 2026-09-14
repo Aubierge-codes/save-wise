@@ -35,6 +35,9 @@ public class Main {
                         income.getAmount()
                 );
 
+        Expense biggestExpense =
+                expenseManager.findBiggestExpense();
+
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
@@ -57,5 +60,19 @@ public class Main {
         System.out.println("Saving rate: "
                 + savingRate
                 + "%");
+
+        System.out.println();
+
+        if (biggestExpense != null) {
+
+            System.out.println("BIGGEST EXPENSE");
+
+            System.out.println(
+                    biggestExpense.getDescription()
+                            + " - "
+                            + biggestExpense.getAmount()
+                            + " RWF"
+            );
+        }
     }
 }

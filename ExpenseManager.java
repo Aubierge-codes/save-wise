@@ -44,4 +44,22 @@ public class ExpenseManager {
 
         return (remainingMoney / income) * 100;
     }
+
+    public Expense findBiggestExpense() {
+
+        if (expenses.isEmpty()) {
+            return null;
+        }
+
+        Expense biggestExpense = expenses.get(0);
+
+        for (Expense expense : expenses) {
+
+            if (expense.getAmount() > biggestExpense.getAmount()) {
+                biggestExpense = expense;
+            }
+        }
+
+        return biggestExpense;
+    }
 }
