@@ -28,4 +28,9 @@ public class SavingGoal {
             savedAmount = savedAmount + amount;
         }
     }
+
+    public double calculateRemainingAmount() {
+
+        return targetAmount - savedAmount;
+    }
 }

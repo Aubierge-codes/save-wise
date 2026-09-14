@@ -48,6 +48,9 @@ public class Main {
         Map<ExpenseCategory, Double> categoryTotals =
                 expenseManager.calculateSpendingByCategory();
 
+        double remainingGoalAmount =
+                savingGoal.calculateRemainingAmount();
+
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
@@ -113,6 +116,10 @@ public class Main {
 
         System.out.println("Saved: "
                 + savingGoal.getSavedAmount()
+                + " RWF");
+
+        System.out.println("Still needed: "
+                + remainingGoalAmount
                 + " RWF");
     }
 }
