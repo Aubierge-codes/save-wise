@@ -21,4 +21,11 @@ public class SavingGoal {
     public double getSavedAmount() {
         return savedAmount;
     }
+
+    public void addSavings(double amount) {
+
+        if (amount > 0) {
+            savedAmount = savedAmount + amount;
+        }
+    }
 }

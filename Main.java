@@ -27,6 +27,8 @@ public class Main {
         SavingGoal savingGoal =
                 new SavingGoal("Laptop", 300000);
 
+        savingGoal.addSavings(50000);
+
         double totalExpenses =
                 expenseManager.calculateTotalExpenses();
 
