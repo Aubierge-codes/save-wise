@@ -114,4 +114,29 @@ public class ExpenseManager {
     public Map<ExpenseCategory, Double> getBudgets() {
         return budgets;
     }
+
+    public String getBudgetStatus(ExpenseCategory category) {
+
+        if (!budgets.containsKey(category)) {
+            return "NO BUDGET";
+        }
+
+        double budget = budgets.get(category);
+
+        Map<ExpenseCategory, Double> spending =
+                calculateSpendingByCategory();
+
+        double spent =
+                spending.getOrDefault(category, 0.0);
+
+        if (spent > budget) {
+            return "OVER BUDGET";
+        }
+
+        if (spent >= budget * 0.80) {
+            return "NEAR LIMIT";
+        }
+
+        return "UNDER BUDGET";
+    }
 }

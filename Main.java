@@ -46,6 +46,11 @@ public class Main {
                 20000
         );
 
+        expenseManager.setBudget(
+                ExpenseCategory.ENTERTAINMENT,
+                5000
+        );
+
         double totalExpenses =
                 expenseManager.calculateTotalExpenses();
 
@@ -133,16 +138,34 @@ public class Main {
 
         System.out.println();
 
-        System.out.println("BUDGETS");
+        System.out.println("BUDGET STATUS");
 
         for (Map.Entry<ExpenseCategory, Double> entry
                 : expenseManager.getBudgets().entrySet()) {
 
+            ExpenseCategory category = entry.getKey();
+
+            double budget = entry.getValue();
+
+            double spent =
+                    categoryTotals.getOrDefault(
+                            category,
+                            0.0
+                    );
+
+            String status =
+                    expenseManager.getBudgetStatus(category);
+
             System.out.println(
-                    entry.getKey()
-                            + " budget: "
-                            + entry.getValue()
+                    category
+                            + " | Budget: "
+                            + budget
                             + " RWF"
+                            + " | Spent: "
+                            + spent
+                            + " RWF"
+                            + " | "
+                            + status
             );
         }
 
