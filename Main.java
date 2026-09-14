@@ -29,6 +29,8 @@ public class Main {
 
         savingGoal.addSavings(50000);
 
+        double monthlySaving = 50000;
+
         double totalExpenses =
                 expenseManager.calculateTotalExpenses();
 
@@ -53,6 +55,9 @@ public class Main {
 
         double progressPercentage =
                 savingGoal.calculateProgressPercentage();
+
+        int monthsToGoal =
+                savingGoal.estimateMonthsToGoal(monthlySaving);
 
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
@@ -128,5 +133,12 @@ public class Main {
         System.out.println("Progress: "
                 + progressPercentage
                 + "%");
+
+        System.out.println("Monthly saving: "
+                + monthlySaving
+                + " RWF");
+
+        System.out.println("Estimated months: "
+                + monthsToGoal);
     }
 }

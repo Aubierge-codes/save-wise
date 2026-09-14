@@ -42,4 +42,19 @@ public class SavingGoal {
 
         return (savedAmount / targetAmount) * 100;
     }
+
+    public int estimateMonthsToGoal(double monthlySaving) {
+
+        if (monthlySaving <= 0) {
+            return 0;
+        }
+
+        double remainingAmount = calculateRemainingAmount();
+
+        if (remainingAmount <= 0) {
+            return 0;
+        }
+
+        return (int) Math.ceil(remainingAmount / monthlySaving);
+    }
 }
