@@ -26,4 +26,11 @@ public class ExpenseManager {
 
         return total;
     }
+
+    public double calculateRemainingMoney(double income) {
+
+        double totalExpenses = calculateTotalExpenses();
+
+        return income - totalExpenses;
+    }
 }

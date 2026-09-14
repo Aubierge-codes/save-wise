@@ -22,6 +22,14 @@ public class Main {
                 new Expense("Movie", ExpenseCategory.ENTERTAINMENT, 4000)
         );
 
+        double totalExpenses =
+                expenseManager.calculateTotalExpenses();
+
+        double remainingMoney =
+                expenseManager.calculateRemainingMoney(
+                        income.getAmount()
+                );
+
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
@@ -33,26 +41,12 @@ public class Main {
                 + income.getAmount()
                 + " RWF");
 
-        System.out.println();
-
-        System.out.println("EXPENSES");
-
-        for (Expense expense : expenseManager.getExpenses()) {
-
-            System.out.println(
-                    expense.getDescription()
-                            + " | "
-                            + expense.getCategory()
-                            + " | "
-                            + expense.getAmount()
-                            + " RWF"
-            );
-        }
-
-        System.out.println();
-
         System.out.println("Total spent: "
-                + expenseManager.calculateTotalExpenses()
+                + totalExpenses
+                + " RWF");
+
+        System.out.println("Remaining: "
+                + remainingMoney
                 + " RWF");
     }
 }
