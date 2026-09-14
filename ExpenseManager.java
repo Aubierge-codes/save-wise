@@ -84,4 +84,18 @@ public class ExpenseManager {
 
         return categoryTotals;
     }
+
+    public boolean isSpendingTooHigh(double income) {
+
+        if (income <= 0) {
+            return false;
+        }
+
+        double totalExpenses = calculateTotalExpenses();
+
+        double spendingPercentage =
+                (totalExpenses / income) * 100;
+
+        return spendingPercentage >= 80;
+    }
 }

@@ -59,6 +59,11 @@ public class Main {
         int monthsToGoal =
                 savingGoal.estimateMonthsToGoal(monthlySaving);
 
+        boolean spendingTooHigh =
+                expenseManager.isSpendingTooHigh(
+                        income.getAmount()
+                );
+
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
@@ -140,5 +145,22 @@ public class Main {
 
         System.out.println("Estimated months: "
                 + monthsToGoal);
+
+        System.out.println();
+
+        System.out.println("SPENDING WARNING");
+
+        if (spendingTooHigh) {
+
+            System.out.println(
+                    "WARNING: Your spending is getting too high."
+            );
+
+        } else {
+
+            System.out.println(
+                    "Your spending is currently under control."
+            );
+        }
     }
 }
