@@ -9,19 +9,35 @@ public class Main {
         ExpenseManager expenseManager = new ExpenseManager();
 
         expenseManager.addExpense(
-                new Expense("Lunch", ExpenseCategory.FOOD, 5000)
+                new Expense(
+                        "Lunch",
+                        ExpenseCategory.FOOD,
+                        5000
+                )
         );
 
         expenseManager.addExpense(
-                new Expense("Bus", ExpenseCategory.TRANSPORT, 2000)
+                new Expense(
+                        "Bus",
+                        ExpenseCategory.TRANSPORT,
+                        2000
+                )
         );
 
         expenseManager.addExpense(
-                new Expense("Notebook", ExpenseCategory.EDUCATION, 3000)
+                new Expense(
+                        "Notebook",
+                        ExpenseCategory.EDUCATION,
+                        3000
+                )
         );
 
         expenseManager.addExpense(
-                new Expense("Movie", ExpenseCategory.ENTERTAINMENT, 4000)
+                new Expense(
+                        "Movie",
+                        ExpenseCategory.ENTERTAINMENT,
+                        4000
+                )
         );
 
         SavingGoal savingGoal =
@@ -77,10 +93,17 @@ public class Main {
                 savingGoal.calculateProgressPercentage();
 
         int monthsToGoal =
-                savingGoal.estimateMonthsToGoal(monthlySaving);
+                savingGoal.estimateMonthsToGoal(
+                        monthlySaving
+                );
 
         boolean spendingTooHigh =
                 expenseManager.isSpendingTooHigh(
+                        income.getAmount()
+                );
+
+        String savingRecommendation =
+                expenseManager.getSavingRecommendation(
                         income.getAmount()
                 );
 
@@ -91,21 +114,29 @@ public class Main {
 
         System.out.println();
 
-        System.out.println("Income: "
-                + income.getAmount()
-                + " RWF");
+        System.out.println(
+                "Income: "
+                        + income.getAmount()
+                        + " RWF"
+        );
 
-        System.out.println("Total spent: "
-                + totalExpenses
-                + " RWF");
+        System.out.println(
+                "Total spent: "
+                        + totalExpenses
+                        + " RWF"
+        );
 
-        System.out.println("Remaining: "
-                + remainingMoney
-                + " RWF");
+        System.out.println(
+                "Remaining: "
+                        + remainingMoney
+                        + " RWF"
+        );
 
-        System.out.println("Saving rate: "
-                + savingRate
-                + "%");
+        System.out.println(
+                "Saving rate: "
+                        + savingRate
+                        + "%"
+        );
 
         System.out.println();
 
@@ -143,9 +174,11 @@ public class Main {
         for (Map.Entry<ExpenseCategory, Double> entry
                 : expenseManager.getBudgets().entrySet()) {
 
-            ExpenseCategory category = entry.getKey();
+            ExpenseCategory category =
+                    entry.getKey();
 
-            double budget = entry.getValue();
+            double budget =
+                    entry.getValue();
 
             double spent =
                     categoryTotals.getOrDefault(
@@ -154,7 +187,9 @@ public class Main {
                     );
 
             String status =
-                    expenseManager.getBudgetStatus(category);
+                    expenseManager.getBudgetStatus(
+                            category
+                    );
 
             System.out.println(
                     category
@@ -173,31 +208,45 @@ public class Main {
 
         System.out.println("SAVING GOAL");
 
-        System.out.println("Goal: "
-                + savingGoal.getName());
+        System.out.println(
+                "Goal: "
+                        + savingGoal.getName()
+        );
 
-        System.out.println("Target: "
-                + savingGoal.getTargetAmount()
-                + " RWF");
+        System.out.println(
+                "Target: "
+                        + savingGoal.getTargetAmount()
+                        + " RWF"
+        );
 
-        System.out.println("Saved: "
-                + savingGoal.getSavedAmount()
-                + " RWF");
+        System.out.println(
+                "Saved: "
+                        + savingGoal.getSavedAmount()
+                        + " RWF"
+        );
 
-        System.out.println("Still needed: "
-                + remainingGoalAmount
-                + " RWF");
+        System.out.println(
+                "Still needed: "
+                        + remainingGoalAmount
+                        + " RWF"
+        );
 
-        System.out.println("Progress: "
-                + progressPercentage
-                + "%");
+        System.out.println(
+                "Progress: "
+                        + progressPercentage
+                        + "%"
+        );
 
-        System.out.println("Monthly saving: "
-                + monthlySaving
-                + " RWF");
+        System.out.println(
+                "Monthly saving: "
+                        + monthlySaving
+                        + " RWF"
+        );
 
-        System.out.println("Estimated months: "
-                + monthsToGoal);
+        System.out.println(
+                "Estimated months: "
+                        + monthsToGoal
+        );
 
         System.out.println();
 
@@ -215,5 +264,13 @@ public class Main {
                     "Your spending is currently under control."
             );
         }
+
+        System.out.println();
+
+        System.out.println("SAVING RECOMMENDATION");
+
+        System.out.println(
+                savingRecommendation
+        );
     }
 }

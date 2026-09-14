@@ -139,4 +139,45 @@ public class ExpenseManager {
 
         return "UNDER BUDGET";
     }
+
+    public String getSavingRecommendation(double income) {
+
+        if (income <= 0) {
+            return "Add a valid income before creating a saving plan.";
+        }
+
+        if (isSpendingTooHigh(income)) {
+            return "Try reducing your expenses. You are spending 80% or more of your income.";
+        }
+
+        for (ExpenseCategory category : budgets.keySet()) {
+
+            String status = getBudgetStatus(category);
+
+            if (status.equals("OVER BUDGET")) {
+                return "Reduce your spending on "
+                        + category
+                        + ". You are over your budget.";
+            }
+        }
+
+        for (ExpenseCategory category : budgets.keySet()) {
+
+            String status = getBudgetStatus(category);
+
+            if (status.equals("NEAR LIMIT")) {
+                return "Be careful with "
+                        + category
+                        + ". You are getting close to your budget.";
+            }
+        }
+
+        double savingRate = calculateSavingRate(income);
+
+        if (savingRate >= 20) {
+            return "Great job! You are saving at least 20% of your income.";
+        }
+
+        return "Consider saving more of your remaining money.";
+    }
 }
