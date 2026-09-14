@@ -51,6 +51,9 @@ public class Main {
         double remainingGoalAmount =
                 savingGoal.calculateRemainingAmount();
 
+        double progressPercentage =
+                savingGoal.calculateProgressPercentage();
+
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
@@ -121,5 +124,9 @@ public class Main {
         System.out.println("Still needed: "
                 + remainingGoalAmount
                 + " RWF");
+
+        System.out.println("Progress: "
+                + progressPercentage
+                + "%");
     }
 }

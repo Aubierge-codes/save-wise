@@ -33,4 +33,13 @@ public class SavingGoal {
 
         return targetAmount - savedAmount;
     }
+
+    public double calculateProgressPercentage() {
+
+        if (targetAmount <= 0) {
+            return 0;
+        }
+
+        return (savedAmount / targetAmount) * 100;
+    }
 }
