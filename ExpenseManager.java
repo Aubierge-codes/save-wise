@@ -6,8 +6,11 @@ public class ExpenseManager {
 
     private ArrayList<Expense> expenses;
 
+    private Map<ExpenseCategory, Double> budgets;
+
     public ExpenseManager() {
         expenses = new ArrayList<>();
+        budgets = new HashMap<>();
     }
 
     public void addExpense(Expense expense) {
@@ -97,5 +100,18 @@ public class ExpenseManager {
                 (totalExpenses / income) * 100;
 
         return spendingPercentage >= 80;
+    }
+
+    public void setBudget(
+            ExpenseCategory category,
+            double amount) {
+
+        if (amount > 0) {
+            budgets.put(category, amount);
+        }
+    }
+
+    public Map<ExpenseCategory, Double> getBudgets() {
+        return budgets;
     }
 }

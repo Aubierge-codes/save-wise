@@ -31,6 +31,21 @@ public class Main {
 
         double monthlySaving = 50000;
 
+        expenseManager.setBudget(
+                ExpenseCategory.FOOD,
+                15000
+        );
+
+        expenseManager.setBudget(
+                ExpenseCategory.TRANSPORT,
+                10000
+        );
+
+        expenseManager.setBudget(
+                ExpenseCategory.EDUCATION,
+                20000
+        );
+
         double totalExpenses =
                 expenseManager.calculateTotalExpenses();
 
@@ -111,6 +126,21 @@ public class Main {
             System.out.println(
                     entry.getKey()
                             + ": "
+                            + entry.getValue()
+                            + " RWF"
+            );
+        }
+
+        System.out.println();
+
+        System.out.println("BUDGETS");
+
+        for (Map.Entry<ExpenseCategory, Double> entry
+                : expenseManager.getBudgets().entrySet()) {
+
+            System.out.println(
+                    entry.getKey()
+                            + " budget: "
                             + entry.getValue()
                             + " RWF"
             );
