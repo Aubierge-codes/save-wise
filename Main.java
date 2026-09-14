@@ -1,14 +1,15 @@
-package src;
 public class Main {
 
     public static void main(String[] args) {
+
+        Income income = new Income("Allowance", 50000);
 
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
         System.out.println("=================================");
 
-        System.out.println("Welcome to SaveWise!");
-        System.out.println("Let's help you manage your money.");
+        System.out.println("Income source: " + income.getSource());
+        System.out.println("Income amount: " + income.getAmount() + " RWF");
     }
 }
