@@ -33,4 +33,15 @@ public class ExpenseManager {
 
         return income - totalExpenses;
     }
+
+    public double calculateSavingRate(double income) {
+
+        if (income <= 0) {
+            return 0;
+        }
+
+        double remainingMoney = calculateRemainingMoney(income);
+
+        return (remainingMoney / income) * 100;
+    }
 }

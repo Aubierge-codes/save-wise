@@ -30,6 +30,11 @@ public class Main {
                         income.getAmount()
                 );
 
+        double savingRate =
+                expenseManager.calculateSavingRate(
+                        income.getAmount()
+                );
+
         System.out.println("=================================");
         System.out.println("            SAVEWISE");
         System.out.println("     Personal Money Assistant");
@@ -48,5 +53,9 @@ public class Main {
         System.out.println("Remaining: "
                 + remainingMoney
                 + " RWF");
+
+        System.out.println("Saving rate: "
+                + savingRate
+                + "%");
     }
 }
