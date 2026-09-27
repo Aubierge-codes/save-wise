@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Semantic colour tokens; components use these (bg-surface, text-muted, ...) so dark mode is
+   handled here rather than with dark: variants everywhere. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-muted: #f1f3f5;
+  --line: #e3e6ea;
+  --ink: #111827;
+  --muted: #5f6b7a;
+  --brand: #0f9d6b;
+  --brand-strong: #0b7a53;
+  --brand-soft: #e3f6ee;
+  --good: #0f9d6b;
+  --good-soft: #e3f6ee;
+  --warn: #b7791f;
+  --warn-soft: #fdf3e1;
+  --danger: #d0453b;
+  --danger-soft: #fde8e6;
+  --info: #2f6fdb;
+  --info-soft: #e6effd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --surface: #151b23;
+    --surface-muted: #1c232d;
+    --line: #2a323d;
+    --ink: #e8edf2;
+    --muted: #97a3b1;
+    --brand: #2fc28b;
+    --brand-strong: #56d6a3;
+    --brand-soft: #123326;
+    --good: #2fc28b;
+    --good-soft: #123326;
+    --warn: #e0a54a;
+    --warn-soft: #362a14;
+    --danger: #f06b60;
+    --danger-soft: #3a1b19;
+    --info: #6aa0f5;
+    --info-soft: #172a47;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
