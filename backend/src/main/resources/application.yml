@@ -1,0 +1,49 @@
+# Production defaults. Every secret comes from the environment; see backend/README.md.
+spring:
+  application:
+    name: savewise-api
+  datasource:
+    url: ${SAVEWISE_DB_URL:jdbc:postgresql://localhost:5432/savewise}
+    username: ${SAVEWISE_DB_USERNAME:savewise}
+    password: ${SAVEWISE_DB_PASSWORD:}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  mvc:
+    problemdetails:
+      enabled: true
+
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+  # Honour X-Forwarded-* from the frontend proxy / load balancer.
+  forward-headers-strategy: framework
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+savewise:
+  jwt:
+    # Required: at least 32 random characters, e.g. `openssl rand -base64 48`.
+    secret: ${SAVEWISE_JWT_SECRET:}
+    ttl: ${SAVEWISE_JWT_TTL:7d}
+    issuer: savewise-api
+  cookie:
+    name: sw_session
+    secure: ${SAVEWISE_COOKIE_SECURE:true}
+  login:
+    max-failures: 5
+    lockout: 15m
+  # Only needed if the browser calls the API directly instead of through the Next.js /api proxy.
+  allowed-origins: ${SAVEWISE_ALLOWED_ORIGINS:}
