@@ -1,0 +1,17 @@
+# Local development: file-based H2 in PostgreSQL mode, plain-HTTP cookies, a throwaway JWT key.
+# Run with: ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/savewise-dev;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    username: sa
+    password: "772010"
+
+savewise:
+  jwt:
+    secret: dev-only-secret-change-me-0123456789abcdef
+  cookie:
+    secure: false
+
+logging:
+  level:
+    com.savewise: DEBUG
